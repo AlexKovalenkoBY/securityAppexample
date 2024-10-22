@@ -1,7 +1,7 @@
 package com.example.sec;
-import com.example.sec.AuthRequest;
-import com.example.sec.AuthResponse;
-import com.example.sec.JwtTokenUtil;
+// import com.example.sec.AuthRequest;
+// import com.example.sec.AuthResponse;
+// import com.example.sec.JwtTokenUtil;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
@@ -37,6 +37,7 @@ class AuthControllerTest {
         MockitoAnnotations.openMocks(this);
     }
 
+    @SuppressWarnings("null")
     @Test
     void testCreateAuthenticationToken_Success() throws Exception {
         AuthRequest authRequest = new AuthRequest("user", "password");
