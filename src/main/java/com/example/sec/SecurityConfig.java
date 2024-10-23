@@ -29,7 +29,8 @@ public class SecurityConfig {
             .csrf(AbstractHttpConfigurer::disable) // Disable CSRF
             .authorizeHttpRequests(auth -> auth
                 .requestMatchers("/authenticate").permitAll() // Permit all requests to /authenticate
-                .anyRequest().authenticated() // All other requests require authentication
+                // .anyRequest().authenticated() // All other requests require authentication
+                .anyRequest().fullyAuthenticated() // All other requests require authentication
             )
             .sessionManagement(session -> session
                 .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
@@ -54,8 +55,10 @@ public class SecurityConfig {
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
         auth
             .ldapAuthentication()
-            .userDnPatterns("uid={0},ou=people") // Adjust this pattern as per your LDAP structure
-            .groupSearchBase("ou=groups") // Adjust this base as per your LDAP structure
+            .userDnPatterns("uid={0}") // Adjust this pattern as per your LDAP structure
+            // .groupSearchBase("ou=groups") // Adjust this base as per your LDAP structure
+            .groupSearchBase("dc=test,dc=bpab,dc=internal") // База поиска групп
+			.groupSearchFilter("uniqueMember={0}") // Фильтр для поиска групп
             .contextSource()
             .url("ldap://localhost:389/dc=test,dc=bpab,dc=internal") // Adjust the LDAP server URL and base DN
             .and()
