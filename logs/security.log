@@ -1,0 +1,78 @@
+2024-10-23 12:17:08 INFO  o.s.s.l.DefaultSpringSecurityContextSource - Configure with URL ldap://localhost:389/dc=test,dc=bpab,dc=internal and root DN dc=test,dc=bpab,dc=internal
+2024-10-23 12:18:09 INFO  o.s.s.l.DefaultSpringSecurityContextSource - Configure with URL ldap://localhost:389/dc=test,dc=bpab,dc=internal and root DN dc=test,dc=bpab,dc=internal
+2024-10-23 12:20:02 INFO  o.s.s.l.DefaultSpringSecurityContextSource - Configure with URL ldap://localhost:389/dc=test,dc=bpab,dc=internal and root DN dc=test,dc=bpab,dc=internal
+2024-10-23 12:20:02 WARN  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used for username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider.
+2024-10-23 12:20:03 INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@72fbf94d, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@6839203b, org.springframework.security.web.context.SecurityContextHolderFilter@149274cb, org.springframework.security.web.header.HeaderWriterFilter@739831a4, org.springframework.web.filter.CorsFilter@2d28fb02, org.springframework.security.web.authentication.logout.LogoutFilter@7ed49a7f, com.example.sec.JwtRequestFilter@6d6d480c, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@72557746, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@62c3f556, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@6db328f8, org.springframework.security.web.session.SessionManagementFilter@6ffd4c0d, org.springframework.security.web.access.ExceptionTranslationFilter@3830f918, org.springframework.security.web.access.intercept.AuthorizationFilter@13213f26]
+2024-10-23 12:20:27 DEBUG o.s.security.web.FilterChainProxy - Securing POST /authenticate
+2024-10-23 12:20:31 DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2024-10-23 12:20:31 DEBUG o.s.s.w.s.SessionManagementFilter - Request requested invalid session id 38331B01F9BBC8616AD2F5D2B0C8E646
+2024-10-23 12:20:31 DEBUG o.s.security.web.FilterChainProxy - Secured POST /authenticate
+2024-10-23 12:20:31 DEBUG o.s.s.w.a.Http403ForbiddenEntryPoint - Pre-authenticated entry point called. Rejecting access
+2024-10-23 12:20:31 DEBUG o.s.security.web.FilterChainProxy - Securing POST /error
+2024-10-23 12:20:31 DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2024-10-23 12:20:31 DEBUG o.s.s.w.a.Http403ForbiddenEntryPoint - Pre-authenticated entry point called. Rejecting access
+2024-10-23 12:21:48 INFO  o.s.s.l.DefaultSpringSecurityContextSource - Configure with URL ldap://localhost:389/dc=test,dc=bpab,dc=internal and root DN dc=test,dc=bpab,dc=internal
+2024-10-23 12:21:48 WARN  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used for username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider.
+2024-10-23 12:21:48 INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@35dece42, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@dd3f8aa, org.springframework.security.web.context.SecurityContextHolderFilter@73c48264, org.springframework.security.web.header.HeaderWriterFilter@feb098f, org.springframework.web.filter.CorsFilter@3d615b2e, org.springframework.security.web.authentication.logout.LogoutFilter@2eda4eeb, com.example.sec.JwtRequestFilter@3e7b65d7, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@5bcec67e, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@3421debd, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@3a1f2a1, org.springframework.security.web.session.SessionManagementFilter@315c081, org.springframework.security.web.access.ExceptionTranslationFilter@40ed1802, org.springframework.security.web.access.intercept.AuthorizationFilter@611b35d6]
+2024-10-23 12:22:00 DEBUG o.s.security.web.FilterChainProxy - Securing POST /authenticate
+2024-10-23 12:22:00 DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2024-10-23 12:22:00 DEBUG o.s.s.w.s.SessionManagementFilter - Request requested invalid session id 38331B01F9BBC8616AD2F5D2B0C8E646
+2024-10-23 12:22:00 DEBUG o.s.security.web.FilterChainProxy - Secured POST /authenticate
+2024-10-23 12:22:00 DEBUG o.s.s.w.a.Http403ForbiddenEntryPoint - Pre-authenticated entry point called. Rejecting access
+2024-10-23 12:22:00 DEBUG o.s.security.web.FilterChainProxy - Securing POST /error
+2024-10-23 12:22:00 DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2024-10-23 12:22:00 DEBUG o.s.s.w.a.Http403ForbiddenEntryPoint - Pre-authenticated entry point called. Rejecting access
+2024-10-23 12:28:57 INFO  o.s.s.l.DefaultSpringSecurityContextSource - Configure with URL ldap://localhost:389/dc=test,dc=bpab,dc=internal and root DN dc=test,dc=bpab,dc=internal
+2024-10-23 12:28:57 WARN  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used for username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider.
+2024-10-23 12:28:58 INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@6661d8c0, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@310b2b6f, org.springframework.security.web.context.SecurityContextHolderFilter@2213639b, org.springframework.security.web.header.HeaderWriterFilter@577536e0, org.springframework.web.filter.CorsFilter@6909f6be, org.springframework.security.web.authentication.logout.LogoutFilter@151732fb, com.example.sec.JwtRequestFilter@79518e00, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@6f25bf88, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@37a0ec3c, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@6b5ab2f2, org.springframework.security.web.session.SessionManagementFilter@5f0a2638, org.springframework.security.web.access.ExceptionTranslationFilter@131a7516, org.springframework.security.web.access.intercept.AuthorizationFilter@316cda31]
+2024-10-23 12:29:19 DEBUG o.s.security.web.FilterChainProxy - Securing POST /authenticate
+2024-10-23 12:29:19 DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2024-10-23 12:29:19 DEBUG o.s.s.w.s.SessionManagementFilter - Request requested invalid session id 38331B01F9BBC8616AD2F5D2B0C8E646
+2024-10-23 12:29:19 DEBUG o.s.security.web.FilterChainProxy - Secured POST /authenticate
+2024-10-23 12:29:19 DEBUG o.s.s.w.a.Http403ForbiddenEntryPoint - Pre-authenticated entry point called. Rejecting access
+2024-10-23 12:29:19 DEBUG o.s.security.web.FilterChainProxy - Securing POST /error
+2024-10-23 12:29:19 DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2024-10-23 12:29:19 DEBUG o.s.s.w.a.Http403ForbiddenEntryPoint - Pre-authenticated entry point called. Rejecting access
+2024-10-23 12:31:26 INFO  o.s.s.l.DefaultSpringSecurityContextSource - Configure with URL ldap://localhost:389/dc=test,dc=bpab,dc=internal and root DN dc=test,dc=bpab,dc=internal
+2024-10-23 12:31:26 WARN  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used for username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider.
+2024-10-23 12:31:26 INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@4a070cf0, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@764b14b8, org.springframework.security.web.context.SecurityContextHolderFilter@75d366c2, org.springframework.security.web.header.HeaderWriterFilter@2c26ba07, org.springframework.web.filter.CorsFilter@202d9236, org.springframework.security.web.authentication.logout.LogoutFilter@315c081, com.example.sec.JwtRequestFilter@6f8aba08, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@5232e3f1, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@5a08b084, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@1f782c05, org.springframework.security.web.session.SessionManagementFilter@3249e278, org.springframework.security.web.access.ExceptionTranslationFilter@77cb452c, org.springframework.security.web.access.intercept.AuthorizationFilter@41bfa9e9]
+2024-10-23 12:31:33 DEBUG o.s.security.web.FilterChainProxy - Securing POST /authenticate
+2024-10-23 12:31:33 DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2024-10-23 12:31:33 DEBUG o.s.s.w.s.SessionManagementFilter - Request requested invalid session id 38331B01F9BBC8616AD2F5D2B0C8E646
+2024-10-23 12:31:33 DEBUG o.s.security.web.FilterChainProxy - Secured POST /authenticate
+2024-10-23 12:31:33 DEBUG o.s.s.w.a.Http403ForbiddenEntryPoint - Pre-authenticated entry point called. Rejecting access
+2024-10-23 12:31:33 DEBUG o.s.security.web.FilterChainProxy - Securing POST /error
+2024-10-23 12:31:33 DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2024-10-23 12:31:33 DEBUG o.s.s.w.a.Http403ForbiddenEntryPoint - Pre-authenticated entry point called. Rejecting access
+2024-10-23 12:31:54 DEBUG o.s.security.web.FilterChainProxy - Securing POST /authenticate
+2024-10-23 12:31:54 DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2024-10-23 12:31:54 DEBUG o.s.s.w.s.SessionManagementFilter - Request requested invalid session id 38331B01F9BBC8616AD2F5D2B0C8E646
+2024-10-23 12:31:54 DEBUG o.s.security.web.FilterChainProxy - Secured POST /authenticate
+2024-10-23 12:31:54 DEBUG o.s.s.w.a.Http403ForbiddenEntryPoint - Pre-authenticated entry point called. Rejecting access
+2024-10-23 12:31:54 DEBUG o.s.security.web.FilterChainProxy - Securing POST /error
+2024-10-23 12:31:54 DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2024-10-23 12:31:54 DEBUG o.s.s.w.a.Http403ForbiddenEntryPoint - Pre-authenticated entry point called. Rejecting access
+2024-10-23 12:31:56 DEBUG o.s.security.web.FilterChainProxy - Securing POST /authenticate
+2024-10-23 12:31:56 DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2024-10-23 12:31:56 DEBUG o.s.s.w.s.SessionManagementFilter - Request requested invalid session id 38331B01F9BBC8616AD2F5D2B0C8E646
+2024-10-23 12:31:56 DEBUG o.s.security.web.FilterChainProxy - Secured POST /authenticate
+2024-10-23 12:31:56 DEBUG o.s.s.w.a.Http403ForbiddenEntryPoint - Pre-authenticated entry point called. Rejecting access
+2024-10-23 12:31:56 DEBUG o.s.security.web.FilterChainProxy - Securing POST /error
+2024-10-23 12:31:56 DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2024-10-23 12:31:56 DEBUG o.s.s.w.a.Http403ForbiddenEntryPoint - Pre-authenticated entry point called. Rejecting access
+2024-10-23 12:31:56 DEBUG o.s.security.web.FilterChainProxy - Securing POST /authenticate
+2024-10-23 12:31:56 DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2024-10-23 12:31:56 DEBUG o.s.s.w.s.SessionManagementFilter - Request requested invalid session id 38331B01F9BBC8616AD2F5D2B0C8E646
+2024-10-23 12:31:56 DEBUG o.s.security.web.FilterChainProxy - Secured POST /authenticate
+2024-10-23 12:31:56 DEBUG o.s.s.w.a.Http403ForbiddenEntryPoint - Pre-authenticated entry point called. Rejecting access
+2024-10-23 12:31:56 DEBUG o.s.security.web.FilterChainProxy - Securing POST /error
+2024-10-23 12:31:56 DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2024-10-23 12:31:56 DEBUG o.s.s.w.a.Http403ForbiddenEntryPoint - Pre-authenticated entry point called. Rejecting access
+2024-10-23 12:32:44 DEBUG o.s.security.web.FilterChainProxy - Securing POST /authenticate
+2024-10-23 12:32:44 DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2024-10-23 12:32:44 DEBUG o.s.s.w.s.SessionManagementFilter - Request requested invalid session id 38331B01F9BBC8616AD2F5D2B0C8E646
+2024-10-23 12:32:44 DEBUG o.s.security.web.FilterChainProxy - Secured POST /authenticate
+2024-10-23 12:32:44 DEBUG o.s.s.w.a.Http403ForbiddenEntryPoint - Pre-authenticated entry point called. Rejecting access
+2024-10-23 12:32:44 DEBUG o.s.security.web.FilterChainProxy - Securing POST /error
+2024-10-23 12:32:44 DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2024-10-23 12:32:44 DEBUG o.s.s.w.a.Http403ForbiddenEntryPoint - Pre-authenticated entry point called. Rejecting access
