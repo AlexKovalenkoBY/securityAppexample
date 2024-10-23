@@ -26,9 +26,9 @@ public class AuthController {
     private UserDetailsService userDetailsService;
 
     	@GetMapping("/")
-	public String index(Authentication authentication, @AuthenticationPrincipal Person person) {
+	public String index() {
 		// String person1  = person.getSn();
-		return "Welcome to the home page , "+authentication.getName()+"! ---";
+		return "Welcome to the home page; // , ";//+authentication.getName()+"! ---";
 		// return "Welcome to the home page , "+"! ---";
 	}
 

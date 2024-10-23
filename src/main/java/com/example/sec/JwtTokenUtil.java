@@ -66,4 +66,8 @@ public class JwtTokenUtil {
     private Boolean isTokenExpired(String token) {
         return extractExpiration(token).before(new Date());
     }
+
+    public String generateTokenViaUsername(String username) {
+       return "";
+    }
 }
