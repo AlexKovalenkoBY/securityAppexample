@@ -130,7 +130,7 @@ objectClass: organizationalUnit
 ou: UVA-U
 
 # Пользователь для группы 'UVA-U'
-dn: cn=uvauser,ou=UVA-U,ou=8,dc=test,dc=bpab,dc=internal
+dn: uid=uvauser,ou=UVA-U,ou=8,dc=test,dc=bpab,dc=internal
 objectClass: top
 objectClass: person
 objectClass: organizationalPerson
@@ -148,7 +148,7 @@ objectClass: organizationalUnit
 ou: PPO-U
 
 # Пользователь для группы 'PPO-U'
-dn: cn=ppouser,ou=PPO-U,ou=8,dc=test,dc=bpab,dc=internal
+dn: uid=ppouser,ou=PPO-U,ou=8,dc=test,dc=bpab,dc=internal
 objectClass: top
 objectClass: person
 objectClass: organizationalPerson
@@ -169,11 +169,11 @@ ou: DK-U
 dn: uid=dkuser,ou=DK-U,ou=8,dc=test,dc=bpab,dc=internal
 objectClass: top
 objectClass: person
-objectClass: organizationalPerson
-objectClass: inetOrgPerson
+objectclass: organizationalPerson
+objectclass: inetOrgPerson
 cn: dkuser
 sn: Dkuser
-uid:dkuser
+uid: dkuser
 givenName: User
 displayName: Dkuser
 userPassword: password
