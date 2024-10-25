@@ -1,21 +1,29 @@
 package com.example.sec;
 
+import java.util.Collections;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.ldap.core.DirContextOperations;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
 import org.springframework.security.config.http.SessionCreationPolicy;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.security.crypto.password.LdapShaPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.ldap.DefaultSpringSecurityContextSource;
+import org.springframework.security.ldap.authentication.BindAuthenticator;
+import org.springframework.security.ldap.authentication.LdapAuthenticationProvider;
+import org.springframework.security.ldap.search.FilterBasedLdapUserSearch;
+import org.springframework.security.ldap.userdetails.DefaultLdapAuthoritiesPopulator;
+import org.springframework.security.ldap.userdetails.LdapAuthoritiesPopulator;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.web.authentication.Http403ForbiddenEntryPoint;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
-import org.springframework.security.authentication.AuthenticationManager;
-import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
-import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
-import org.springframework.security.config.Customizer;
+
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig {
@@ -27,24 +35,65 @@ public class SecurityConfig {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
             .csrf(AbstractHttpConfigurer::disable) // Disable CSRF
-            .authorizeHttpRequests(auth -> auth
-              //  .requestMatchers("/authenticate2").permitAll() // Permit all requests to /authenticate
-              //  .requestMatchers("/").permitAll() // Permit all requests to /authenticate
-                .anyRequest().authenticated() // All other requests require authentication
+            .authorizeHttpRequests(authorize -> authorize
+                .requestMatchers("/auth/login").permitAll()
+                .requestMatchers("/welcome").permitAll() // вход без авторизации
+                .requestMatchers("/admin/**").hasRole("ADMIN") // доступ только для роли admin
+                .requestMatchers("/**").hasAnyRole("ADMIN", "USER") // доступ для ролей admin и user
+                .anyRequest().authenticated()
             )
-            .formLogin(Customizer.withDefaults())
+            .formLogin(form -> form
+                .permitAll()
+            )
+            .logout(logout -> logout
+                .logoutUrl("/logout")
+                .logoutSuccessUrl("/")
+                .invalidateHttpSession(true)
+                .deleteCookies("JSESSIONID")
+            )
             .sessionManagement(session -> session
                 .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
-            );
-
-        http.addFilterBefore(jwtRequestFilter, UsernamePasswordAuthenticationFilter.class);
-
+            )
+            .authenticationProvider(ldapAuthenticationProvider())
+            .exceptionHandling(exception -> exception
+                .authenticationEntryPoint(new Http403ForbiddenEntryPoint()) // Настройка обработки ошибок аутентификации
+            )
+            .addFilterBefore(jwtRequestFilter, UsernamePasswordAuthenticationFilter.class);
         return http.build();
     }
 
     @Bean
-    public AuthenticationManager authenticationManager(AuthenticationConfiguration authenticationConfiguration) throws Exception {
-        return authenticationConfiguration.getAuthenticationManager();
+    public LdapAuthoritiesPopulator ldapAuthoritiesPopulator() {
+        return (DirContextOperations dirContextOperations, String username) -> {
+            String userDn = dirContextOperations.getNameInNamespace().toLowerCase();
+            if ((userDn.contains("ou=UVA-U,OU=8,dc=test,dc=bpab,dc=internal".toLowerCase())
+                    || userDn.contains("OU=DK-U,OU=8,dc=test,dc=bpab,dc=internal".toLowerCase()))) {
+                return Collections.singleton(new SimpleGrantedAuthority("ROLE_ADMIN"));
+            } else {
+                return Collections.singleton(new SimpleGrantedAuthority("ROLE_USER"));
+            }
+        };
+    }
+
+    @Bean
+    public LdapAuthenticationProvider ldapAuthenticationProvider() {
+        BindAuthenticator authenticator = new BindAuthenticator(contextSource());
+        FilterBasedLdapUserSearch userSearch = new FilterBasedLdapUserSearch(
+            "", // Base DN for the search (empty string means search from the root)
+            "(uid={0})", // Search filter
+            contextSource()
+        );
+        authenticator.setUserSearch(userSearch);
+        DefaultLdapAuthoritiesPopulator authoritiesPopulator = new DefaultLdapAuthoritiesPopulator(contextSource(), "ou=groups,dc=test,dc=bpab,dc=internal");
+        return new LdapAuthenticationProvider(authenticator, authoritiesPopulator);
+    }
+
+    @Bean
+    public DefaultSpringSecurityContextSource contextSource() {
+        DefaultSpringSecurityContextSource contextSource = new DefaultSpringSecurityContextSource("ldap://127.0.0.1:8389");
+        contextSource.setUserDn("uid=dkuser,ou=DK-U,ou=8,dc=test,dc=bpab,dc=internal");
+        contextSource.setPassword("password");
+        return contextSource;
     }
 
     @Bean
@@ -52,17 +101,8 @@ public class SecurityConfig {
         return new BCryptPasswordEncoder();
     }
 
-    @Autowired
-    public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
-        auth
-            .ldapAuthentication()
-            .userDnPatterns("uid={0},ou=people") // Adjust this pattern as per your LDAP structure
-            .groupSearchBase("ou=groups") // Adjust this base as per your LDAP structure
-            .contextSource()
-            .url("ldap://localhost:389/dc=test,dc=bpab,dc=internal") // Adjust the LDAP server URL and base DN
-            .and()
-            .passwordCompare()
-            .passwordEncoder(new LdapShaPasswordEncoder()) // Use the appropriate password encoder
-            .passwordAttribute("userPassword"); // Adjust the password attribute as per your LDAP structure
+    @Bean
+    public AuthenticationManager authenticationManager(AuthenticationConfiguration authenticationConfiguration) throws Exception {
+        return authenticationConfiguration.getAuthenticationManager();
     }
 }
